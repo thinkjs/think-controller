@@ -49,7 +49,7 @@ function invokeController(options, app) {
       }
       if (instance[method]) {
         // pre set request status
-        if (ctx.body === undefined && options.preSetStatus) {
+        if (ctx.body === undefined && options.preSetStatus && !ctx.status) {
           ctx.status = options.preSetStatus;
         }
         return instance[method]();
